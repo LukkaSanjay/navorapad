@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navorapad — Encrypted Multimedia Notepad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SCREEN 1: LANDING & CODE ENTRY -->
+  <div id="entry-screen" class="screen landing-wrapper">
+    <!-- Top Mini Navigation -->
+    <nav class="landing-nav">
+      <div class="nav-brand">🔐 <strong>Navorapad</strong></div>
+      <div class="nav-links">
+        <a href="#how-it-works">How it Works</a>
+        <a href="#simple-policy">Simple Policy</a>
+      </div>
+    </nav>
+
+    <!-- Main Unlock Card -->
+    <div class="hero-section">
+      <div class="hero-card">
+        <h1>🔐 Navorapad</h1>
+        <p class="subtitle">
+          No signups. No logins. Enter a unique secret code to open or create your encrypted pad for notes, images, and audio.
+        </p>
+
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="secret-code-input"
+            placeholder="Enter a new or existing secret code..."
+            autocomplete="off"
+          />
+          <button class="eye-btn" type="button" data-target="secret-code-input" aria-label="Show or hide code">
+            <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+
+        <button id="open-pad-btn" class="primary-btn">Open / Create Pad →</button>
+        <p id="entry-status" class="status-text"></p>
+      </div>
+    </div>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section id="how-it-works" class="info-section">
+      <div class="info-grid-2">
+        <div class="info-card">
+          <div class="info-icon">🚫</div>
+          <h3>No Accounts</h3>
+          <p><strong>Start a pad with one code</strong>, start another with another. No email, phone number, or registration is ever required.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕵️</div>
+          <h3>Only You Can Read</h3>
+          <p>Notes, images, and audio are <span class="highlight">encrypted with your code</span>, not ours. Only you hold the key to decrypt them.</p>
+        </div>
+      </div>
+
+      <!-- THE TECHNOLOGY -->
+      <div class="info-card tech-card">
+        <div class="info-icon">🔑 ⇄ 🔐</div>
+        <h3>The Technology</h3>
+        <p>The first time you enter <strong>your code</strong>, your browser derives a unique <span class="highlight">secret location</span> ID using SHA-256.</p>
+        <p>Before saving your notes, photos, or voice recordings, <strong>your code</strong> scrambles everything into an <span class="highlight">AES-256 encrypted version</span>.</p>
+        <ul class="tech-checklist">
+          <li><span class="check-yes">✔</span> <strong>Only the encrypted version</strong> is saved.</li>
+          <li><span class="check-no">✘</span> <strong>The original files</strong> and <span class="check-no">✘</span> <strong>your code</strong> are never saved or sent.</li>
+        </ul>
+        <p class="tech-note"><em>This means only you hold the missing piece (your code) to locate and decrypt your pad back to its original form.</em></p>
+      </div>
+
+      <div class="info-grid-2">
+        <div class="info-card">
+          <div class="info-icon">🗑️</div>
+          <h3>Sharing &amp; Copyright</h3>
+          <p>Sharing a Navorapad means sharing a code. If you <strong>find it</strong>, you can edit it or <strong>delete it</strong> yourself anytime.</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🌐</div>
+          <h3>It's Everywhere</h3>
+          <p>Just enter <strong>one code</strong> and start saving notes, images, and voice clips now! Use the <strong>same code</strong> to return later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR SIMPLE POLICY SECTION -->
+    <section id="simple-policy" class="policy-banner">
+      <h2>Our Simple Policy</h2>
+      <ol class="policy-list">
+        <li><strong>Free</strong> to use, always.</li>
+        <li>
+          We <strong>do not</strong> store your codes and we <strong>do not want to</strong>.
+          <ul>
+            <li>In the event our database is ever compromised, your pads remain unreadable because only you hold the codes to find and decrypt them (as long as you use unique, hard-to-guess codes).</li>
+            <li>Even if third parties demand access to stored records, your text, images, and audio remain unreadable because only you hold the decryption code.</li>
+          </ul>
+        </li>
+        <li>We <strong>don't care</strong> what you store in your pads because <strong>we don't know</strong> and <strong>we can't check</strong>. Only you hold the code.</li>
+        <li>If you find a pad that contains your <strong>intellectual property</strong>, just delete it yourself. If you can find it, you can edit it.</li>
+        <li>
+          We are not responsible for the following:
+          <ul>
+            <li>If you use a pad with a simple or common code like <code>'0000'</code> or <code>'1234'</code> and someone else guesses and opens it.</li>
+            <li>If someone by pure chance enters your exact same code and accesses your pad.</li>
+            <li>Data loss caused by browser cache clearing, device failure, or unforeseen server/network outages.</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="landing-footer">
+      <a href="#entry-screen" class="back-top-link">^ Back To Top ^</a>
+      <p>© 2026 Navorapad™. All Rights Reserved.</p>
+    </footer>
+  </div>
+
+  <!-- SCREEN 2: SECOND LOCK PROMPT -->
+  <div id="second-lock-screen" class="screen hidden">
+    <div class="hero-card">
+      <h2>🛡️ Pad Locked</h2>
+      <p class="subtitle">This pad is protected with a second encryption code.</p>
+      <div class="password-wrapper">
+        <input type="password" id="second-code-input" placeholder="Enter second unlock code..." autocomplete="off" />
+        <button class="eye-btn" type="button" data-target="second-code-input" aria-label="Show or hide second code">
+          <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+          </svg>
+        </button>
+      </div>
+      <button id="unlock-second-btn" class="primary-btn">Decrypt Pad</button>
+      <button id="back-to-entry-btn" class="ghost-btn">← Use Different Code</button>
+      <p id="second-lock-error" class="error-text"></p>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: MAIN PAD WORKSPACE -->
+  <div id="workspace-screen" class="screen wide-screen hidden">
+    <header class="topbar">
+      <div class="brand">
+        <span>🔐 <strong>Navorapad</strong></span>
+        <span id="save-indicator" class="save-badge">Unlocked</span>
+      </div>
+
+      <nav class="tabs">
+        <button class="tab-btn active" data-tab="edit-tab">✏️ Editing</button>
+        <button class="tab-btn" data-tab="read-tab">📖 Reading</button>
+        <button class="tab-btn" data-tab="settings-tab">⚙️ Settings</button>
+      </nav>
+
+      <button id="close-pad-btn" class="danger-btn">Close & Lock</button>
+    </header>
+
+    <!-- TAB 1: EDITING VIEW -->
+    <section id="edit-tab" class="tab-content active">
+      <div class="split-workspace">
+        <div class="split-left">
+          <div class="editor-wrapper">
+            <div id="line-numbers" class="line-numbers hidden">1</div>
+            <textarea
+              id="pad-textarea"
+              placeholder="Start typing your secret notes here... Everything is encrypted in your browser before saving."
+            ></textarea>
+          </div>
+          <div class="editor-bottom-bar">
+            <span id="char-counter" class="char-count">0 / 500,000</span>
+            <button id="save-pad-btn" class="primary-btn">💾 Encrypt & Save Pad</button>
+          </div>
+        </div>
+
+        <aside class="split-right">
+          <div class="media-bar">
+            <label class="tool-btn">
+              🖼️ + Image
+              <input type="file" id="image-upload" accept="image/*" hidden />
+            </label>
+            <label class="tool-btn">
+              🎵 + Audio
+              <input type="file" id="audio-upload" accept="audio/*" hidden />
+            </label>
+            <button type="button" id="record-audio-btn" class="tool-btn">
+              🎙️ Record
+            </button>
+          </div>
+
+          <div class="media-subtabs">
+            <button type="button" class="subtab-btn active" data-target="edit-images-pane">
+              🖼️ Images (<span id="edit-img-count">0</span>)
+            </button>
+            <button type="button" class="subtab-btn" data-target="edit-audio-pane">
+              🎵 Audio (<span id="edit-aud-count">0</span>)
+            </button>
+          </div>
+
+          <div id="edit-images-pane" class="media-pane active">
+            <div id="edit-images-list" class="media-stack">
+              <p class="empty-hint">No images attached yet.</p>
+            </div>
+          </div>
+
+          <div id="edit-audio-pane" class="media-pane hidden">
+            <div id="edit-audio-list" class="media-stack">
+              <p class="empty-hint">No audio files yet.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 2: READING VIEW -->
+    <section id="read-tab" class="tab-content hidden">
+      <div class="split-workspace">
+        <div class="split-left">
+          <div class="reading-paper">
+            <div id="reading-text" class="reading-body"></div>
+          </div>
+        </div>
+
+        <aside class="split-right">
+          <div class="media-subtabs">
+            <button type="button" class="subtab-btn active" data-target="read-images-pane">
+              🖼️ Images (<span id="read-img-count">0</span>)
+            </button>
+            <button type="button" class="subtab-btn" data-target="read-audio-pane">
+              🎵 Audio (<span id="read-aud-count">0</span>)
+            </button>
+          </div>
+
+          <div id="read-images-pane" class="media-pane active">
+            <div id="read-images-list" class="media-stack">
+              <p class="empty-hint">No images in this pad.</p>
+            </div>
+          </div>
+
+          <div id="read-audio-pane" class="media-pane hidden">
+            <div id="read-audio-list" class="media-stack">
+              <p class="empty-hint">No audio in this pad.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- TAB 3: SETTINGS -->
+    <section id="settings-tab" class="tab-content hidden">
+      <div class="settings-card">
+        <div class="settings-header">
+          <h3>⏳ Self-Destruct Timer</h3>
+          <span id="destruct-status" class="pill-off">OFF</span>
+        </div>
+        <p>Pick a date and time below—it activates and saves automatically. After that time passes, opening the pad will permanently erase it.</p>
+        <input type="datetime-local" id="self-destruct-input" />
+        <button id="clear-destruct-btn" class="ghost-btn">Turn Off Timer</button>
+      </div>
+
+      <div class="settings-card">
+        <div class="settings-header">
+          <h3>🛡️ Double Pad Lock (2nd Password)</h3>
+          <span id="second-lock-status" class="pill-off">OFF</span>
+        </div>
+        <p>Protect this pad with a second encryption password. Saves automatically as soon as you click Apply.</p>
+        <div class="password-wrapper">
+          <input type="password" id="new-second-code" placeholder="Enter a second password..." autocomplete="off" />
+          <button class="eye-btn" type="button" data-target="new-second-code" aria-label="Show or hide second password">
+            <svg class="eye-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+            <svg class="eye-closed hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="settings-btn-row">
+          <button id="set-second-code-btn" class="tool-btn">Apply Second Lock</button>
+          <button id="remove-second-code-btn" class="ghost-btn hidden" style="margin-top:0;">Remove 2nd Lock</button>
+        </div>
+      </div>
+
+      <div class="settings-card row-between">
+        <div>
+          <h3>🔢 Line Numbers</h3>
+          <p style="margin-bottom:0;">Toggle ON to display line numbers along the left side of your text editor.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="line-numbers-toggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="settings-card">
+        <h3>🕒 Revision History</h3>
+        <p>Every time you click <strong>Encrypt & Save Pad</strong>, Navorapad saves a backup snapshot (up to 5 versions). Click <strong>Restore</strong> to bring back an older version.</p>
+        <div id="history-list" class="history-list">No saved revisions yet. Click "Encrypt & Save Pad" in Editing to create your first snapshot.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FULL-SCREEN IMAGE LIGHTBOX MODAL -->
+  <div id="image-lightbox" class="lightbox hidden">
+    <button id="close-lightbox-btn" class="lightbox-close" aria-label="Close full image">✕</button>
+    <img id="lightbox-img" src="" alt="Full size preview" />
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+
+  <!-- SLEEK NON-BLOCKING TOAST NOTIFICATION -->
+  <div id="toast-notification" class="toast hidden"></div>
+
+ <script type="module" src="app.js"></script>
+</body>
+</html>
